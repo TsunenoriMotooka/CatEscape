@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class ArrowGenerator : MonoBehaviour
 {
+    public GameObject gameDirector;    
     public GameObject arrowPrefab;
+    public Transform player;
+
     float span = 1.0f;
     float delta = 0;
-    public Transform player;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,7 @@ public class ArrowGenerator : MonoBehaviour
             int px = Random.Range(-6, 7);
             go.transform.position = new Vector3(px, 7, 0);
             go.GetComponent<ArrowController>().SetPlayer(player);
+            go.GetComponent<ArrowController>().SetGameDirector(gameDirector);
         }        
     }
 }

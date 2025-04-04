@@ -6,7 +6,8 @@ public class ArrowController : MonoBehaviour
 {
     //GameObject player;
     Transform player;
-
+    GameObject gameDirector;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -35,11 +36,17 @@ public class ArrowController : MonoBehaviour
 
         if (d < r1 + r2) {
             Destroy(gameObject);
+            this.gameDirector.GetComponent<GameDirector>().DecreaseHp();
         }
     }
 
     public void SetPlayer(Transform player)
     {
         this.player = player;
+    }
+
+    public void SetGameDirector(GameObject gameDirector)
+    {
+        this.gameDirector = gameDirector;
     }
 }
