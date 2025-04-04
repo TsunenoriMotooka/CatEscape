@@ -5,6 +5,7 @@ using UnityEngine;
 public class ArrowController2 : MonoBehaviour
 {
     Transform player;
+    GameObject gameDirector;
     
     // Start is called before the first frame update
     void Start()
@@ -27,11 +28,17 @@ public class ArrowController2 : MonoBehaviour
         float r2 = 0.80f;
         if (d < r1 + r2) {
             Destroy(gameObject);
+            this.gameDirector.GetComponent<GameDirector2>().DecreaseHp();
         }
     }
 
     public void SeetPlayer(Transform player)
     {
         this.player = player;
+    }
+
+    public void SetGameDirector(GameObject gameDirector)
+    {
+        this.gameDirector = gameDirector;
     }
 }
